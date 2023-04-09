@@ -34,11 +34,10 @@ app.post("/createUrl",async(req,res)=>{
         urlName:urlName,
         urlCode:urlCode
      })
-     res.send("http://localhost:9000/"+urlCode);
+     res.send(req.hostname+"/"+urlCode);
     }else{
-    res.send("http://localhost:9000/"+fetchedUrl.urlCode);
+    res.send(req.hostname+"/"+fetchedUrl.urlCode);
    }
-   console.log(res.statusCode);
  })
 app.get("/:urlCode",async(req,res)=>{
     const {urlCode} = req.params;
@@ -50,6 +49,6 @@ app.get("/:urlCode",async(req,res)=>{
     res.redirect(fetchedUrl.urlName)
 });
 
-app.listen(9000,()=>{
+app.listen(process.env.PORT || 9000,()=>{
     console.log("port is running on",port);
 }); 
