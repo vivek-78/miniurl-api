@@ -48,7 +48,9 @@ app.get("/:urlCode",async(req,res)=>{
     console.log(req.hostname);
     res.redirect(fetchedUrl.urlName)
 });
-
+app.get("/",(req,res)=>{
+    res.send("<center><h1>Make api calls to fetch data</h1></center>")
+})
 app.listen(process.env.PORT || 9000,()=>{
     console.log("port is running on",port);
 }); 
