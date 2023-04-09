@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
 mongoose.set("strictQuery", false); 
-mongoose.connect(process.env.MONOGO_CONNECT)
+mongoose.connect(process.env.MONOGO_CONNECT || "mongodb://vivek1_4:vivek9912@cluster0-shard-00-00.0ymfu.mongodb.net:27017,cluster0-shard-00-01.0ymfu.mongodb.net:27017,cluster0-shard-00-02.0ymfu.mongodb.net:27017/?ssl=true&replicaSet=atlas-q8lt8b-shard-0&authSource=admin&retryWrites=true&w=majority")
 import {model,Schema} from "mongoose";
 
 const urlSchema = new Schema({
